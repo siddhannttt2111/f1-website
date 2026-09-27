@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0c0f;
+  --surface: #12151a;
+  --foreground: #e6e9ee;
+  --muted: #8b93a1;
+  --steel: #3a414c;
+  --accent: #5eb0ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-steel: var(--steel);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-barlow);
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+.text-outline {
+  -webkit-text-stroke: 1px rgba(230, 233, 238, 0.14);
+  color: transparent;
+}
+
+.text-outline-strong {
+  -webkit-text-stroke: 1.5px var(--foreground);
+  color: transparent;
+}
+
+.marquee-track {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.era-node.is-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px rgba(94, 176, 255, 0.15);
+  scale: 1.25;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
